@@ -1,14 +1,14 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven 3.9.9'  // Asegúrate de que Maven esté configurado en Jenkins
-        gradle 'Gradle 8.12'  // Asegúrate de que Gradle esté configurado en Jenkins
+        maven 'maven3'  // Asegúrate de que Maven esté configurado en Jenkins
+        gradle 'gradle8'  // Asegúrate de que Gradle esté configurado en Jenkins
     }
     stages {
         stage('Checkout') {
             steps {
                 // Clonar el código del repositorio
-                git 'https://github.com/tu_usuario/springboot-pipeline.git'  // Asegúrate de que esta sea la URL correcta de tu repositorio
+                git 'https://github.com/DiegoGuimo/Activity-gradle.git'  // Asegúrate de que esta sea la URL correcta de tu repositorio
             }
         }
         stage('Build with Maven') {
