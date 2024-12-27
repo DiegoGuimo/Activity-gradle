@@ -6,13 +6,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Clonar el código del repositorio
-                git 'https://github.com/DiegoGuimo/Activity-gradle.git'  // Asegúrate de que esta sea la URL correcta de tu repositorio
+                git 'https://github.com/DiegoGuimo/Activity-gradle.git'
             }
         }
         stage('Build with Gradle') {
             steps {
                 script {
+                    // Otorgar permisos de ejecución a gradlew
+                    sh 'chmod +x ./gradlew'
                     // Construir con Gradle
                     sh './gradlew clean build'
                 }
@@ -21,7 +22,6 @@ pipeline {
         stage('Test with Gradle') {
             steps {
                 script {
-                    // Pruebas con Gradle
                     sh './gradlew test'
                 }
             }
